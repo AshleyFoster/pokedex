@@ -1,19 +1,23 @@
 'use client'
 
-import React from 'react';
+import React, {useState} from 'react';
 import Sprite from './Sprite';
+import ImageControls from './ImageControls';
 
 const Pokedex = ({ chosenPokemon }) => {
+    const [chosenSprite, setChosenSprite] = useState('front_default')
+
+    const updateChosenSprite = (sprite: string) => {
+        setChosenSprite(sprite);
+    }
     return (
-        <div className="p-14 grow bg-red-600" >
-            <Sprite sprites={chosenPokemon.sprites} />
+        <div className="bg-red-600 p-14" >
+            <Sprite sprites={chosenPokemon.sprites} chosenSprite={chosenSprite} />
             <span>
             <h1 className="py-12">{chosenPokemon.name}</h1>
             <h1>{chosenPokemon.id}</h1>
             </span>
-            <button>Back</button>
-            <button>Female</button>
-            <button>Shiny</button>
+            <ImageControls sprites={chosenPokemon.sprites} currentSprite={chosenSprite} chosenSprite={updateChosenSprite}/>
         </div>
     );
 }

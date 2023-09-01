@@ -5,7 +5,7 @@ import PokePreview from './PokePreview';
 
 const PokeList = ({ pokemons, choosePokemon }) => {
   return (
-    <div className="grow bg-zinc-100 p-12">
+    <div className="bg-zinc-100 px-5 py-12 rounded">
     <PokePicker choosePokemon={choosePokemon} />
       <div>
         {pokemons.length > 0 &&
