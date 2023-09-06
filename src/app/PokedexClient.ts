@@ -8,12 +8,14 @@ export type PokemonData = {
 }
 
 export class PokedexClient {
+    baseUrl: string;
+
     constructor() {
-        // api keys, etc
+        this.baseUrl = 'https://pokeapi.co/api/v2/';
     }
 
     all() {
-        return axios.get(`https://pokeapi.co/api/v2/pokemon?limit=151`).then(
+        return axios.get<PokemonData[]>(`${this.baseUrl}pokemon?limit=151`).then(
             (response) => {
                 return response.data
             }
@@ -21,7 +23,7 @@ export class PokedexClient {
     }
 
     getData(id: number) {
-        return axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then(
+        return axios.get<PokemonData>(`${this.baseUrl}pokemon/${id}`).then(
             (response) => {
                 return response.data
             }
