@@ -1,7 +1,7 @@
 import React from 'react';
 import { PokemonData } from './PokedexClient';
 import PokePicker from './PokePicker';
-import PokePreview from './PokePreview';
+import PokeListItem from './PokeListItem';
 
 const PokeList = ({ pokemons, choosePokemon }) => {
   return (
@@ -10,7 +10,7 @@ const PokeList = ({ pokemons, choosePokemon }) => {
       <div>
         {pokemons.length > 0 &&
           pokemons.map((pokemon: PokemonData, i: number) => (
-            <PokePreview
+            <PokeListItem
               key={pokemon.name}
               pokemon={pokemon}
               choosePokemon={choosePokemon}
